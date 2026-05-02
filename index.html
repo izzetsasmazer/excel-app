@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Fiyat Hesaplama</title>
+<style>
+body { font-family: Arial; padding: 30px; }
+input { padding: 10px; margin: 5px; }
+button { padding: 10px; }
+</style>
+</head>
+
+<body>
+
+<h2>Fiyat Hesaplama</h2>
+
+<label>Tutar:</label>
+<input id="tutar" type="number"><br>
+
+<label>Komisyon (%):</label>
+<input id="oran" type="number"><br>
+
+<button onclick="hesapla()">Hesapla</button>
+
+<h3 id="sonuc"></h3>
+
+<script>
+function hesapla() {
+  let tutar = document.getElementById("tutar").value;
+  let oran = document.getElementById("oran").value;
+
+  let net = tutar / (1 - oran/100);
+
+  document.getElementById("sonuc").innerText =
+    "Net Tutar: " + net.toFixed(2) + " TL";
+}
+</script>
+
+</body>
+</html>
